@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body, html {
+    margin: 0;
+    background-color: #22252b;
+    font-family: 'Roboto Slab', serif;
+
+
+}
