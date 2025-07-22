@@ -15,7 +15,7 @@ export default function Home() {
   
   return (
     <div className="flex p-4">
-      <div className="grid grid-cols-5 gap-4 overflow-hidden bg-[#22252b] text-white p-4 w-full">
+      <div className="grid grid-cols-5 gap-4 overflow-hidden bg-[#22252b] capitalize text-white p-4 w-full">
         <div className="col-span-5 grid grid-cols-5 gap-4 sticky top-0 z-10 text-lg font-semibold bg-teal-900 text-slate-100 p-3 rounded shadow-md border-b border-teal-800/40">
           <h3 className="text-center">Pokemon</h3>
           <h3 className="text-center">ID</h3>
@@ -40,17 +40,31 @@ export default function Home() {
             <p className="flex items-center justify-center bg-gray-700 rounded p-2">{p.pokemon_name}</p>
             <p className="flex items-center justify-center bg-gray-700 rounded p-2">{p.type}</p>
 
-            <div className="grid grid-cols-4 bg-gray-700 rounded p-2">
-            <p className="flex items-center justify-center">🔥</p>
-            <p className="flex items-center justify-center">🔥</p>
-            <p className="flex items-center justify-center">🔥</p>
-            <p className="flex items-center justify-center">🔥</p>
-            </div>
+           <div className="flex items-center justify-center bg-gray-700 rounded p-2">
+  <button className="cursor-pointer transition-colors duration-300 ease-in-out">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6 text-gray-300 hover:text-blue-600 group-hover:text-blue-600 transition-all duration-300 ease-in-out"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      />
+    </svg>
+  </button>
+</div>
+
+   
           </React.Fragment>
         ))}
         <div className='flex w-screen gap-5 justify-center pr-15  text-white'>
         <button className="cursor-pointer" onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-gray-300 hover:text-blue-600 group-hover:text-blue-600 transition-all duration-300 ease-in-out">
   <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
 
@@ -65,7 +79,7 @@ export default function Home() {
             )
           }
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-gray-300 hover:text-blue-600 group-hover:text-blue-600 transition-all duration-300 ease-in-out">
   <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
 
