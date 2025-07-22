@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/pokemon", pokemonRoute);
 
-const PORT = process.env.SERVER_PORT || 8080;
+const PORT = 8080;
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running on Port ${PORT}`);
 });

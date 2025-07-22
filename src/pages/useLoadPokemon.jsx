@@ -11,7 +11,7 @@ export default function useLoadPokemon() {
       try {
         const pokeRes = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
         const pokeData = await pokeRes.json();
-        const response = await fetch("http://localhost:3000/api/pokemon", {
+        const response = await fetch("gamemanagement-production.up.railway.app/api/pokemon", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
