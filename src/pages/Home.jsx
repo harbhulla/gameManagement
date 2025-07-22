@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from './CartContext';
 import useLoadPokemon from './useLoadPokemon';
 export default function Home() {
-  const {pokemon} = useContext(CartContext)
+  const {pokemon, setPokemon} = useContext(CartContext)
   const [currentPage, setCurrentPage] = useState(1);
   useLoadPokemon();
 
@@ -15,14 +15,13 @@ export default function Home() {
   
   return (
     <div className="flex p-4">
-      <div className="grid grid-cols-5 gap-4 overflow-hidden bg-[#22252b] capitalize text-white p-4 w-full">
-        <div className="col-span-5 grid grid-cols-5 gap-4 sticky top-0 z-10 text-lg font-semibold bg-teal-900 text-slate-100 p-3 rounded shadow-md border-b border-teal-800/40">
+      <div className="grid grid-cols-4 gap-4 overflow-hidden bg-[#22252b] capitalize text-white p-4 w-full">
+        <div className="col-span-4 grid grid-cols-4 gap-4 sticky top-0 z-10 text-lg font-semibold bg-teal-900 text-slate-100 p-3 rounded shadow-md border-b border-teal-800/40">
           <h3 className="text-center">Pokemon</h3>
           <h3 className="text-center">ID</h3>
           <h3 className="text-center">Name</h3>
           <h3 className="text-center">Type</h3>
-          <h3 className="text-center">Actions</h3>
-        </div>
+                  </div>
               
 
         {/* Rows */}
@@ -40,24 +39,7 @@ export default function Home() {
             <p className="flex items-center justify-center bg-gray-700 rounded p-2">{p.pokemon_name}</p>
             <p className="flex items-center justify-center bg-gray-700 rounded p-2">{p.type}</p>
 
-           <div className="flex items-center justify-center bg-gray-700 rounded p-2">
-  <button className="cursor-pointer transition-colors duration-300 ease-in-out">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="size-6 text-gray-300 hover:text-blue-600 group-hover:text-blue-600 transition-all duration-300 ease-in-out"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      />
-    </svg>
-  </button>
-</div>
+        
 
    
           </React.Fragment>
