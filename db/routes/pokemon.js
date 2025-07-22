@@ -1,28 +1,40 @@
 import express from "express";
 import pool from "../pool.js"; // assumes you have DB config here
-import { useState } from "react";
+
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { pokemonArray } = req.body;
   try {
-    const retrieveData = await pool.query("SELECT * FROM pokemon");
-    if(retrieveData.rowCount !== pokemonArray.count) {
+    if(pokemonArray.count < 1000) {
         for(let i = 0; i < pokemonArray.count; i++) {
             const pokeRes = await fetch(`${pokemonArray.results[i].url}`);
             const pokeData = await pokeRes.json();
+            const pokeID = pokeData.id;
+            const pokeName = pokeData.name;
+            const pokeType = pokeData.types[0].type.name;
+            const pokeImage = pokeData.sprites.front_default;
+            const inDB = await pool.query(`SELECT EXISTS (SELECT 1 FROM pokemon WHERE id = ${pokeID})`);
+
+            if(!pokeID || !pokeName || !pokeType || !pokeImage || inDB) {
+                console.log("Skipped gang");
+                continue;
+            }
             await pool.query(
-    'INSERT INTO pokemon (id,pokemon_name,type) VALUES ($1,$2,$3) ON CONFLICT (id) DO NOTHING RETURNING *',
-      [pokeData.id,pokeData.name,pokeData.types[0].type.name]
+    'INSERT INTO pokemon (id,pokemon_name,type,url) VALUES ($1,$2,$3,$4) ON CONFLICT (id) DO NOTHING RETURNING *',
+      [pokeID,pokeName,pokeType,pokeImage]
     ) 
 }
+
     }
-    res.json(retrieveData.rows);
-  } catch (err) {
-    console.log("error");
-    return res.status(400).json({error: ' inserting user'});
+    const result = await pool.query("SELECT * FROM pokemon");
+    res.json(result.rows);
+ } catch (err) {
+  console.error("❌ Insertion Error:", err.message);
+  return res.status(400).json({ error: err.message });
 }
+
 });
 
 
