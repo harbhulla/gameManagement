@@ -9,7 +9,7 @@ app.use(express.json());
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'shinkansen.proxy.rlwy.net:40844', // Add this
+  origin: 'postgres-production-c5ac.up.railway.app',
   credentials: true
 }));
 
