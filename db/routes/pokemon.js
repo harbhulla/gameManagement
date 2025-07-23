@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { pokemonArray } = req.body;
+  console.log(pokemonArray);
   try {
-    if(pokemonArray.count < 1000) {
         for(let i = 0; i < pokemonArray.count; i++) {
             const pokeRes = await fetch(`${pokemonArray.results[i].url}`);
             const pokeData = await pokeRes.json();
@@ -27,8 +27,8 @@ router.post('/', async (req, res) => {
     ) 
 }
 
-    }
     const result = await pool.query("SELECT * FROM pokemon");
+
     res.json(result.rows);
  } catch (err) {
   console.error("❌ Insertion Error:", err.message);

@@ -9,9 +9,9 @@ export default function useLoadPokemon() {
     if(hasLoaded) return;
     async function fetchData() {
       try {
-        const pokeRes = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+        const pokeRes = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50&offset=0");
         const pokeData = await pokeRes.json();
-        const response = await fetch("gamemanagement-production.up.railway.app/api/pokemon", {
+        const response = await fetch("https://gamemanagement-production.up.railway.app/api/pokemon", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -19,13 +19,13 @@ export default function useLoadPokemon() {
           body: JSON.stringify({ pokemonArray: pokeData }),
         });
 
-        const data = await response.json();
-        setPokemon(data); // way better than doing for...loop with setPokemon many times
-        setHasLoaded(true);
         if (!response.ok) {
-          throw new Error(`Error ${data.error}`);
+            const errorText = await response.text(); 
+          throw new Error(`Server error: ${response.status} ${errorText}`);
         }
-
+        const data = await response.json();
+        setPokemon(data); 
+        setHasLoaded(true);
         console.log("✅ Received Data!");
       } catch (error) {
         console.error("❌ Error:", error);
