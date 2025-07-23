@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import pokemonRoute from "./routes/pokemon.js";
 import dotenv from 'dotenv';
 
