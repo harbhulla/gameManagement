@@ -15,7 +15,7 @@ app.use(cors({
 
 app.use("/api/pokemon", pokemonRoute);
 
-const PORT = process.env.SERVER_PORT || 8080;
+const PORT = process.env.SERVER_PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on Port ${PORT}`);
