@@ -4,11 +4,16 @@ import dotenv from 'dotenv';
 import pool from "../pool.js";
 dotenv.config();
 const app = express();
-
-
 app.use(cors({
-  origin: '*', 
-  credentials: false
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000', 
+    'https://game-management-mauve.vercel.app',
+    'https://game-management-git-main-harbhullas-projects.vercel.app'  // ✅ Add this line
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 const router = express.Router();
 
