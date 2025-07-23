@@ -1,6 +1,22 @@
-import express from "express";
-import pool from "../pool.js"; // assumes you have DB config here
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
+dotenv.config();
+const app = express();
+
+
+app.use(cors({
+  origin: [
+    'http://localhost:5173',  
+    'http://localhost:3000',  
+    'https://game-management-git-main-harbhullas-projects.vercel.app', 
+    'https://*.vercel.app'    
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 const router = express.Router();
 
 router.post('/', async (req, res) => {
