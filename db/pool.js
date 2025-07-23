@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const connectionString = "postgresql://postgres:tMxPihEVFUCXLwuFtygmeuzUStgMtJdN@shinkansen.proxy.rlwy.net:40844/railway"
+const connectionString = "postgresql://postgres:pCFmeOwYXdukxtgYSoOvGnNGZBanZsvY@shinkansen.proxy.rlwy.net:10574/railway"
 const pool = new Pool({
 
   connectionString,
