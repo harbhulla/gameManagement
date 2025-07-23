@@ -8,7 +8,7 @@ app.use(express.json());
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'postgres-production-c5ac.up.railway.app',
+  origin: 'https://game-management-mauve.vercel.app/',
   credentials: true
 }));
 
