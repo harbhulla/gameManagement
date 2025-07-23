@@ -1,11 +1,12 @@
 import express from "express";
 import pokemonRoute from "./routes/pokemon.js";
 import dotenv from 'dotenv';
+import cors from "cors";
 
 dotenv.config();
 const app = express(); // ✅ define app before using it
 app.use(express.json());
-const cors = require('cors');
+
 
 app.use(cors({
   origin: 'https://game-management-mauve.vercel.app',
