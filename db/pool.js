@@ -7,8 +7,9 @@ dotenv.config();
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:JuKxISECuqlPYZLTJiyIJxIZsgwzneBx@shinkansen.proxy.rlwy.net:53186/railway',
-  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false, // for Railway SSL
+  ssl: { rejectUnauthorized: false }, // always use SSL with Railway
 });
+
 pool
   .connect()
   .then(() => console.log('✅ Connected to DB!'))
