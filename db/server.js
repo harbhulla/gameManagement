@@ -6,7 +6,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express(); // ✅ define app before using it
 app.use(express.json());
-app.use(cors());
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'shinkansen.proxy.rlwy.net:40844', // Add this
+  credentials: true
+}));
+
 app.use("/api/pokemon", pokemonRoute);
 
 const PORT = process.env.SERVER_PORT || 8080;
