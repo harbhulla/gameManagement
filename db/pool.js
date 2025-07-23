@@ -4,10 +4,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:JuKxISECuqlPYZLTJiyIJxIZsgwzneBx@shinkansen.proxy.rlwy.net:53186/railway',
-  ssl: { rejectUnauthorized: false }, // always use SSL with Railway
+  host: process.env.PGHOST,
+  user: process.env.PGUSER,
+  database: process.env.PGDATABASE,
+  port: process.env.PGPORT,
+  password: process.env.PGPASSWORD
 });
 
 pool
