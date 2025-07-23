@@ -3,13 +3,10 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
-
+const connectionString = "postgresql://postgres:tMxPihEVFUCXLwuFtygmeuzUStgMtJdN@shinkansen.proxy.rlwy.net:40844/railway"
 const pool = new Pool({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
-  port: process.env.PGPORT,
-  password: process.env.PGPASSWORD
+
+  connectionString,
 });
 
 pool
