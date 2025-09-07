@@ -1,26 +1,32 @@
-Pokémon Game Management App
+🧩 Pokémon Database
 
-A full-stack Pokémon data manager built with **Node.js**, **Express**, **PostgreSQL**, and **Vite + React**.  
-Backend is deployed on **Render**, frontend on **Vercel**.
+A full-stack app for tracking, managing, and exploring your Pokémon collection.
 
 
----
+✨ Features & Roadmap
 
-Features
+✔️ Pokémon Catalog – Browse and manage detailed entries for every Pokémon
+✔️ Search & Filter – Quickly find Pokémon by name, type, or ID
+✔️ Collection Management – Mark your owned, favorite, or trained Pokémon
+✔️ Responsive UI – Built with React + Tailwind CSS for smooth experience across devices
+✔️ PostgreSQL Database – Store Pokémon data reliably with Prisma ORM
 
- View a list of Pokémon from a Render-hosted PostgreSQL DB
- Frontend powered by React + Vite
- Backend built with Node.js, Express, and `pg`
- Fully deployed with Vercel (frontend) + Render (backend + database)
+🚧 Coming Soon
 
----
+📊 Pokémon stats visualization (HP, Attack, Defense, etc.)
 
-Tech Stack
+🏆 Trainer profiles with owned Pokémon
 
-| Layer     | Tech |
-|-----------|------|
-| Frontend  | React, Vite |
-| Backend   | Node.js, Express |
-| Database  | PostgreSQL (on Render) |
-| Hosting   | Vercel (frontend), Render (backend + DB) |
+🔎 Advanced search by abilities and evolution stages
 
+🎨 Dark/light theme toggle
+
+🛠️ Tech Stack
+Frontend	React, Tailwind CSS<br>
+Backend	Node.js, Express<br>
+Database	PostgreSQL (via Prisma ORM)<br>
+API	PokéAPI (for Pokémon data)<br>
+Development	Git, ESLint, Prettier, npm<br>
+🌟 Closing Note
+
+This project brings the Pokémon universe into a structured database and management platform—perfect for collectors, trainers, and fans who want a modern way to explore their Pokédex.
